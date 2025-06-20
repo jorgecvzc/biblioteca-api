@@ -9,7 +9,7 @@ on:
     paths:
       - 'BibliotecaAPI/**' # Si se cambia cualquier cosa dentro de la ruta BibliotecaAPI
       - 'BibliotecaAPITests/**'
-      - '.github/workflow/hola-mundo.yml'  # si se modifica el propio workflow
+      - '.github/workflows/hola-mundo.yml'  # si se modifica el propio workflow
   pull_request:  # si se hace un pull request
     branches:
       - main
@@ -28,3 +28,4 @@ jobs:  # trabajos a ejecutar en el presente workflow
         run:
           echo "El repositorio ${{ github.repository }} contiene los siguientes archivos:"
           tree
+          
