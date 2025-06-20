@@ -1,0 +1,30 @@
+# Carácter de comentario #
+name: hola-mundo
+
+on:
+  workflow_dispatch: # ejecución de manera manual
+  push:
+    branches: # ramas a actualizar
+      - main
+    paths:
+      - 'BibliotecaAPI/**' # Si se cambia cualquier cosa dentro de la ruta BibliotecaAPI
+      - 'BibliotecaAPITests/**'
+      - '.github/workflow/hola-mundo.yml'  # si se modifica el propio workflow
+  pull_request:  # si se hace un pull request
+    branches:
+      - main
+
+jobs:  # trabajos a ejecutar en el presente workflow
+  saludar:
+    runs-on: ubuntu-latest  # se correrá la ejecución en una máquina ubuntu
+    steps:  # tareas a ejecutar
+      - name: Muestra mensaje Hola Mundo  # cada tarea empieza por un guion
+        run: echo "Hola mundo, Jorge"
+
+      - name: Checkout
+        uses: actions/checkout@v4.2.2  # código predefinido en actions
+
+      - name: Listar los archivos del repositorio
+        run:
+          echo "El repositorio ${{ github.repository }} contiene los siguientes archivos:"
+          tree
