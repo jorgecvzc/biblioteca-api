@@ -3,16 +3,16 @@ name: hola-mundo
 
 on:
   workflow_dispatch: # ejecución de manera manual
-  push:
-    branches: # ramas a actualizar
-      - main
-    paths:
-      - 'BibliotecaAPI/**' # Si se cambia cualquier cosa dentro de la ruta BibliotecaAPI
-      - 'BibliotecaAPITests/**'
-      - '.github/workflows/hola-mundo.yml'  # si se modifica el propio workflow
-  pull_request:  # si se hace un pull request
-    branches:
-      - main
+#  push:  # se ejecuta si hay push
+#    branches: # ramas a actualizar
+#      - main
+#    paths:
+#      - 'BibliotecaAPI/**' # Si se cambia cualquier cosa dentro de la ruta BibliotecaAPI
+#      - 'BibliotecaAPITests/**'
+#      - '.github/workflows/hola-mundo.yml'  # si se modifica el propio workflow
+#  pull_request:  # si se hace un pull request
+#    branches:
+#      - main
 
 jobs:  # trabajos a ejecutar en el presente workflow
   saludar:
