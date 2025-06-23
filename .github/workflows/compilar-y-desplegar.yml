@@ -11,7 +11,7 @@ on:
       - '.github/workflows/compilar-y-desplegar.yml'
 
 env:  # variable de ambiente
-  VERSION_DOTNET: '9'
+  VERSION_DOTNET: '8'
 
 jobs:
   build:
@@ -20,10 +20,10 @@ jobs:
       proyecto: BibliotecaAPI/BibliotecaAPI.csproj
     steps:
       - name: Checkout  # Traemos los archivos del repositorio
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
 
       - name: Instalar .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v4.3.1
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
