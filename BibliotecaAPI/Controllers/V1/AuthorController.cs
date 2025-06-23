@@ -52,7 +52,6 @@ namespace BibliotecaAPI.Controllers.V1
         public async Task<IEnumerable<AuthorDTO>> Get(
             [FromQuery] PaginacionDTO paginacionDTO)
         {
-            throw new ApplicationException("Prueba test error");
             return await servicioAutoresV1.Get(paginacionDTO);
         }
 
