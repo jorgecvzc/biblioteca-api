@@ -15,7 +15,7 @@ env:  # variable de ambiente
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     env:
       proyecto: BibliotecaAPI/BibliotecaAPI.csproj
     steps:
