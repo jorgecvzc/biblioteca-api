@@ -11,7 +11,7 @@ on:
       - '.github/workflows/compilar-y-desplegar.yml'
 
 env:  # variable de ambiente
-  VERSION_DOTNET: '8'
+  VERSION_DOTNET: '9'
 
 jobs:
   build:
