@@ -31,7 +31,7 @@ jobs:
         run: dotnet restore
 
       - name: Compilar
-        run: dotnet --build --no-restore  # Se pone --not-restore ya que se ha hecho el `restore` en el paso anterior
+        run: dotnet build --no-restore  # Se pone --not-restore ya que se ha hecho el `restore` en el paso anterior
 
       - name: Realizar pruebas automáticas
         run: dotnet test --no-build  # Como antes se ha hecho el `build` pues ahora `--no-bjuild`
