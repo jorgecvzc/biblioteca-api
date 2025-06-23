@@ -23,9 +23,9 @@ jobs:
         uses: actions/checkout@v4.2.2
 
       - name: Instalar .NET
-        uses: actions/setup-dotnet@v4.3.1
+        uses: actions/setup-dotnet@v4.3.0
         with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
+          dotnet-version: ${{ env.VERSION_DOTNET }}
 
       - name: Obtener dependencias
         run: dotnet restore
