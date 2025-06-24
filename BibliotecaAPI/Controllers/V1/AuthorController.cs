@@ -65,6 +65,7 @@ namespace BibliotecaAPI.Controllers.V1
         [ServiceFilter<HATEOASAuthorAttribute>()]
         public async Task<ActionResult<AuthorConLibrosDTO>> Get([FromRoute] [Description("El id del autor")] int id)
         {
+            throw new ApplicationException("Prueba error desde vSutdio");
             var autor = await context.Authors
                 .Include(x => x.Books)
                     .ThenInclude(y => y.Book)
