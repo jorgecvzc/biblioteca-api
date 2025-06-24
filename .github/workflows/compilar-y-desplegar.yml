@@ -36,10 +36,10 @@ jobs:
         run: dotnet build --no-restore  # Se pone --not-restore ya que se ha hecho el `restore` en el paso anterior
 
       - name: Realizar pruebas automáticas
-        run: dotnet test --no-build  # Como antes se ha hecho el `build` pues ahora `--no-bjuild`
+        run: dotnet test --no-build  # Como antes se ha hecho el `build` pues ahora `--no-build`
 
       - name: Publicar el WebAPI
-        run: dotnet publish $proyecto -c Release -o miapp -runtime win-x86
+        run: dotnet publish $proyecto -c Release -o miapp -r win-x86
 
       - name: Cargar artefacto
         uses: actions/upload-artifact@v4.6.2
