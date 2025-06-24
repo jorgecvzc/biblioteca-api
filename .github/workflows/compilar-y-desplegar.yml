@@ -12,6 +12,8 @@ on:
 
 env:  # variable de ambiente
   VERSION_DOTNET: '9'
+  AZURE_APP_SERVICE_NOMBRE: 'BibliotecaAPI20250619075519'
+  AZURE_APP_SERVICE_UBICACION_PAQUETE: '.'
 
 jobs:
   build:
@@ -35,4 +37,31 @@ jobs:
 
       - name: Realizar pruebas automáticas
         run: dotnet test --no-build  # Como antes se ha hecho el `build` pues ahora `--no-bjuild`
-        
+
+      - name: Publicar el WebAPI
+        run: dotnet publish $proyecto -c Release -o miapp -runtime win-x86
+
+      - name: Cargar artefacto
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          path: ./miapp
+          name: buildAPI
+
+  despliegue:
+    permissions:
+      contents: none
+    runs-on: ubuntu-latest
+    needs: build  # necesita que se termine el proceso build para iniciar su ejecución
+    steps:
+      - name: Obtener los artefactos
+        uses: actions/download-artifact@v4.3.0
+        with:
+          name: buildAPI
+
+      - name: Despliegue hacia Azure
+        uses: Azure/webapps-deploy@v2.2.12
+        with:
+          app-name: ${{ env.AZURE_APP_SERVICE_NOMBRE }}
+          publish-profile: ${{ secrets.AZURE_PERFIL_PUBLICO }
+          package: ${{ enc.AZURE_APP_SERVICE_UBICACION_PAQUETE }}
+          
